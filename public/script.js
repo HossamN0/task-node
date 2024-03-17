@@ -15,16 +15,15 @@ let weatherFun = async()=>{
         let valuee = document.getElementById("inputtxt").value
         let dataJson = await fetch(`http://localhost:3000/weather?address=${valuee}`)
         let data = await dataJson.json()
-        console.log(data)
         if(data.error){
             errorf.innerHTML = data.error
             locationf.innerHTML = ""
             forecast.innerHTML = ""
         }else{
             errorf.innerHTML = ""
-            locationf.innerHTML = data.name + " " + data.country
+            locationf.innerHTML = data.data.name + " " + data.data.country
             setTimeout(()=>{
-                forecast.innerHTML = data.temp
+                forecast.innerHTML = data.data.temp
             }, 1000)
         }
     }
