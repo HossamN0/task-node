@@ -45,6 +45,9 @@ const forecast = (long, lat, callback)=>{
 }
 
 
+const publicDirectory = path.join(__dirname, "../public")
+app.use(express.static(publicDirectory))
+
 
 app.set('view engine', 'hbs')
 const pathnow = path.join(__dirname, "../views")
